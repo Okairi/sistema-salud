@@ -1,0 +1,38 @@
+.form {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #0032a0;
+  margin: 30vh auto;
+  padding: 1rem;
+  color: #fff;
+  border-radius: 10px;
+  align-items: center;
+  @media screen and (width <=430px) {
+    width: 244px;
+  }
+
+  .input-form {
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    width: 80%;
+    font-size: 14px;
+  }
+  .btn-form {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+    margin-bottom: 1rem;
+
+    &:hover {
+      background-color: #f5ebeb;
+    }
+  }
+  .redirect {
+    color: #fff;
+  }
+}
