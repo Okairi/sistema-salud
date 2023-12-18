@@ -4,5 +4,10 @@ import ViteSassPlugin from "vite-plugin-sass";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), ViteSassPlugin()],
+  plugins: [
+    react(),
+    ViteSassPlugin({
+      // Agrega opciones específicas de Sass si es necesario
+    }),
+  ],
 });

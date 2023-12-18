@@ -1,4 +1,4 @@
-import "./Load.scss";
+import "./Load.css";
 
 export const Load = () => {
   return (

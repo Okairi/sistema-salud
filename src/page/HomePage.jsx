@@ -3,7 +3,7 @@ import { errorAlert } from "../alerts/Alerts";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "./HomePage.scss";
+import "./HomePage.css";
 import { Load } from "../helpers/Load";
 
 export const HomePage = () => {
@@ -19,10 +19,7 @@ export const HomePage = () => {
   const handleChangeFile = async (e) => {
     setIsLoading(true);
     try {
-      const result = await upLoadFile(
-        e.target.files[0],
-        e.target.files[0].name
-      );
+      await upLoadFile(e.target.files[0], e.target.files[0].name);
 
       getAllImagesFirebase();
       setIsLoading(false);
