@@ -25,7 +25,7 @@ export const Register = () => {
     e.preventDefault();
     setisRegister(true);
     signUp(user.email, user.password)
-      .then((x) => {
+      .then(() => {
         setisRegister(false);
         AlertMessageHelp("Registrado correctamente", "success");
         navigate("/login");
