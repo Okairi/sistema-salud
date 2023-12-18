@@ -1,10 +1,11 @@
 import { upLoadFile, getAllImages } from "../firebase";
-import { errorAlert } from "../alerts/Alerts";
+import { AlertMessageHelp } from "../alerts/Alerts";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./HomePage.css";
 import { Load } from "../helpers/Load";
+import { errorMessages } from "../helpers/Messages";
 
 export const HomePage = () => {
   const [images, setImages] = useState([]);
@@ -24,7 +25,7 @@ export const HomePage = () => {
       getAllImagesFirebase();
       setIsLoading(false);
     } catch (error) {
-      errorAlert("Se debe enviar la imagen");
+      AlertMessageHelp("Se debe enviar la imagen", "error");
     }
   };
 
@@ -33,7 +34,11 @@ export const HomePage = () => {
       const da = await getAllImages();
       setImages(da);
     } catch (error) {
-      errorAlert(error);
+      AlertMessageHelp(
+        errorMessages[error.code] ||
+          "Ocurrió un error, vuelva a intentar en unos minutos",
+        "error"
+      );
     } finally {
       setIsLoading(false);
     }

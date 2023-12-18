@@ -1,13 +1,7 @@
 import Swal from "sweetalert2";
 
-export const succesAlert = (message) =>
+export const AlertMessageHelp = (message, icon) =>
   Swal.fire({
+    icon: icon,
     title: message,
-    icon: "success",
-  });
-
-export const errorAlert = (err) =>
-  Swal.fire({
-    icon: "error",
-    title: err,
   });

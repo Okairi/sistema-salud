@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../context/AuthContext";
-import { errorAlert, succesAlert } from "../alerts/Alerts";
+import { AlertMessageHelp } from "../alerts/Alerts";
 import { errorMessages } from "../helpers/Messages";
 export const Login = () => {
   const [user, setuser] = useState({
@@ -26,14 +26,16 @@ export const Login = () => {
     e.preventDefault();
     login(user.email, user.password)
       .then((x) => {
-        succesAlert("Ingreso exitoso");
+        AlertMessageHelp("Ingreso exitoso", "success");
+
         localStorage.setItem("galerytok", x.user.accessToken);
         navigate("/home");
       })
       .catch((err) => {
-        errorAlert(
+        AlertMessageHelp(
           errorMessages[err.code] ||
-            "Ocurrió un error, vuelva a intentar en unos minutos"
+            "Ocurrió un error, vuelva a intentar en unos minutos",
+          "error"
         );
       });
   };

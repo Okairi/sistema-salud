@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { errorMessages } from "../helpers/Messages";
-import { succesAlert, errorAlert } from "../alerts/Alerts";
+import { AlertMessageHelp } from "../alerts/Alerts";
 export const Register = () => {
   const [user, setuser] = useState({
     email: "",
@@ -27,13 +27,14 @@ export const Register = () => {
     signUp(user.email, user.password)
       .then((x) => {
         setisRegister(false);
-        succesAlert("Registrado correctamente");
+        AlertMessageHelp("Registrado correctamente", "success");
         navigate("/login");
       })
       .catch((err) => {
-        errorAlert(
+        AlertMessageHelp(
           errorMessages[err.code] ||
-            "Ocurrió un error, vuelva a intentar en unos minutos"
+            "Ocurrió un error, vuelva a intentar en unos minutos",
+          "error"
         );
         setisRegister(false);
       });
